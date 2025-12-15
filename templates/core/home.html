@@ -1,0 +1,19 @@
+<h1>{{ site.site_name|default:"Kumateq" }}</h1>
+
+{% if site and site.slogan %}
+  <p>{{ site.slogan }}</p>
+{% endif %}
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Enviar</button>
+</form>
+
+
+{% if site and site.whatsapp_number %}
+  <a href="https://wa.me/{{ site.whatsapp_number|cut:'+' }}?text=Hola%20Kumateq%2C%20quiero%20informaci%C3%B3n"
+     target="_blank" rel="noopener">
+    Escríbenos por WhatsApp
+  </a>
+{% endif %}
